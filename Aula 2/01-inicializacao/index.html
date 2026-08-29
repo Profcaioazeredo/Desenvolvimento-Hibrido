@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>01 · Inicialização do Firebase</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 640px; margin: 60px auto; color: #16212e; }
+    h1 { color: #FFA000; }
+    #status { padding: 16px; border-radius: 8px; background: #F4F7FB; margin-top: 20px; }
+    .ok { color: #1a7f37; font-weight: bold; }
+    .erro { color: #c62828; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Firebase + JavaScript Puro</h1>
+  <p>Este exemplo apenas inicializa o Firebase e confirma a conexão com o projeto.</p>
+  <div id="status">Conectando...</div>
+
+  <script type="module">
+    import { app } from "../firebase-config.js";
+
+    // Se o app foi inicializado sem erros, options.projectId estará disponível
+    try {
+      const projeto = app.options.projectId;
+      document.querySelector("#status").innerHTML =
+        `<span class="ok">Conectado com sucesso!</span><br>Projeto: ${projeto}`;
+    } catch (erro) {
+      document.querySelector("#status").innerHTML =
+        `<span class="erro">Falha ao conectar.</span><br>${erro.message}`;
+    }
+  </script>
+</body>
+</html>
