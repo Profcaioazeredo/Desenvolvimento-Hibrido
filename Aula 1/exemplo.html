@@ -9,6 +9,8 @@
      igual à sintaxe clássica, sem precisar de import/module -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<!-- Importação das credenciais do Firebase -->
+<script src="firebase-config.js"></script>
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -27,7 +29,7 @@
     <div class="card">
       <h2>1. Configuração do Firebase</h2>
       <p class="hint">Preencha com o firebaseConfig do SEU projeto (Firebase Console &gt; Configurações &gt; Geral &gt; Seus apps). Depois de colar, salve o arquivo e recarregue a página.</p>
-      <p class="hint">O objeto de configuração está definido no início do bloco <code class="small">&lt;script&gt;</code>, no final desta página — procure por <code class="small">firebaseConfig</code>.</p>
+      <p class="hint">O objeto de configuração está definido no arquivo <code class="small">firebase-config.js</code>.</p>
     </div>
 
     <div class="card">
@@ -139,18 +141,7 @@
 </div>
 
 <script>
-  // ======================================================
-  // 1. COLE AQUI O firebaseConfig DO SEU PROJETO
-  // ======================================================
- const firebaseConfig = {
-    apiKey: "AIzaSyAVY6TlmRKPrmUwRmn4iFFiD8eWdylEbFs",
-    authDomain: "desenvolvimento-hibrido.firebaseapp.com",
-    projectId: "desenvolvimento-hibrido",
-    storageBucket: "desenvolvimento-hibrido.firebasestorage.app",
-    messagingSenderId: "501179141126",
-    appId: "1:501179141126:web:de941fb965d7f2beb6c787"
-  };
-
+  // Inicialização do Firebase utilizando a variável declarada em firebase-config.js
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
 
